@@ -306,3 +306,85 @@ Traceback (most recent call last):
     raise TemplateDoesNotExist(template_name, chain=chain)
 django.template.exceptions.TemplateDoesNotExist: task2app/base.html
 "GET /shop/ HTTP/1.1" 500 73958
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Internal Server Error: /shop/
+Traceback (most recent call last):
+  File "/Users/dmitriy/Documents/Обучение/HTML/Django/.venv/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dmitriy/Documents/Обучение/HTML/Django/.venv/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dmitriy/Documents/Обучение/HTML/Django/homework/task2app/views.py", line 9, in index
+    return render(request, 'task2app/base.html')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dmitriy/Documents/Обучение/HTML/Django/.venv/lib/python3.11/site-packages/django/shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dmitriy/Documents/Обучение/HTML/Django/.venv/lib/python3.11/site-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dmitriy/Documents/Обучение/HTML/Django/.venv/lib/python3.11/site-packages/django/template/loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: task2app/base.html
+"GET /shop/ HTTP/1.1" 500 73952
+Internal Server Error: /shop/
+Traceback (most recent call last):
+  File "/Users/dmitriy/Documents/Обучение/HTML/Django/.venv/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dmitriy/Documents/Обучение/HTML/Django/.venv/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dmitriy/Documents/Обучение/HTML/Django/homework/task2app/views.py", line 9, in index
+    return render(request, 'task2app/base.html')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dmitriy/Documents/Обучение/HTML/Django/.venv/lib/python3.11/site-packages/django/shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dmitriy/Documents/Обучение/HTML/Django/.venv/lib/python3.11/site-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dmitriy/Documents/Обучение/HTML/Django/.venv/lib/python3.11/site-packages/django/template/loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: task2app/base.html
+"GET /shop/ HTTP/1.1" 500 74089
+Not Found: /
+"GET / HTTP/1.1" 404 2273
+"GET /myshop/ HTTP/1.1" 200 182
+Not Found: /
+"GET / HTTP/1.1" 404 2273
+Not Found: /
+"GET / HTTP/1.1" 404 2273
+Watching for file changes with StatReloader
+Not Found: /
+"GET / HTTP/1.1" 404 2273
+Internal Server Error: /shop/
+Traceback (most recent call last):
+  File "/Users/dmitriy/Documents/Обучение/HTML/Django/.venv/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dmitriy/Documents/Обучение/HTML/Django/.venv/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dmitriy/Documents/Обучение/HTML/Django/homework/task2app/views.py", line 7, in index
+    return render(request, 'task2app/index.html')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dmitriy/Documents/Обучение/HTML/Django/.venv/lib/python3.11/site-packages/django/shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dmitriy/Documents/Обучение/HTML/Django/.venv/lib/python3.11/site-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/dmitriy/Documents/Обучение/HTML/Django/.venv/lib/python3.11/site-packages/django/template/loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: task2app/index.html
+"GET /shop/ HTTP/1.1" 500 73852
+"GET /shop/completion HTTP/1.1" 200 2
+/Users/dmitriy/Documents/Обучение/HTML/Django/homework/task2app/views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /shop/completion HTTP/1.1" 200 2
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader

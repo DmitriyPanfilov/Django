@@ -1,26 +1,50 @@
-{% extends 'base.html' %}
+{% extends 'task2app/base.html' %}
+
+{% block title %}Client Order{% endblock %}
 
 {% block content %}
-  <h1>Список заказанных товаров клиента</h1>
 
-  <h2>За последние 7 дней (неделю)</h2>
-  <ul>
-    {% for product in client_orders_last_7_days %}
-      <li>{{ product.name }} - {{ product.price }}</li>
-    {% endfor %}
-  </ul>
+<h1>{{ client.name }} - Ordered Products</h1>
 
-  <h2>За последние 30 дней (месяц)</h2>
-  <ul>
-    {% for product in client_orders_last_30_days %}
-      <li>{{ product.name }} - {{ product.price }}</li>
+<h2>Last 7 Days</h2>
+<ul>
+    {% for order in orders_last_7_days %}
+        {% for product in order.products.all %}
+            <li>{{ product.name }} - {{ product.price }}</li>
+        {% endfor %}
     {% endfor %}
-  </ul>
+</ul>
 
-  <h2>За последние 365 дней (год)</h2>
-  <ul>
-    {% for product in client_orders_last_365_days %}
-      <li>{{ product.name }} - {{ product.price }}</li>
+<h2>Last 30 Days</h2>
+<ul>
+    {% for order in orders_last_30_days %}
+        {% for product in order.products.all %}
+            <li>{{ product.name }} - {{ product.price }}</li>
+        {% endfor %}
     {% endfor %}
-  </ul>
+</ul>
+
+<h2>Last 365 Days</h2>
+<ul>
+    {% for order in orders_last_365_days %}
+        {% for product in order.products.all %}
+            <li>{{ product.name }} - {{ product.price }}</li>
+        {% endfor %}
+    {% endfor %}
+</ul>
+
+<h2>All Products</h2>
+<ul>
+    {% for product in all_products %}
+        <li>{{ product.name }} - {{ product.price }}</li>
+    {% endfor %}
+</ul>
+
+<h2>Add Product</h2>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ product_form.as_p }}
+    <button type="submit">Add Product</button>
+</form>
+
 {% endblock %}

@@ -1,35 +1,40 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.utils import timezone
 from datetime import timedelta
 from .models import Client, Product, Order
+from .forms import ProductForm
 
 
 # Create your views here.
 def index(request):
-    # title = 'Му shop'
-    return render(request, 'task2app/base.html')
+    return render(request, 'task2app/index.html')
 
 
-# def client_orders(request, client_id):
-#     client = Client.objects.get(pk=client_id)
-#
-#     # За последние 7 дней
-#     last_7_days = timezone.now() - timedelta(days=7)
-#     client_orders_last_7_days = Product.objects.filter(order__client=client,
-#                                                        order__order_date__gte=last_7_days).distinct()
-#
-#     # За последние 30 дней
-#     last_30_days = timezone.now() - timedelta(days=30)
-#     client_orders_last_30_days = Product.objects.filter(order__client=client,
-#                                                         order__order_date__gte=last_30_days).distinct()
-#
-#     # За последние 365 дней
-#     last_365_days = timezone.now() - timedelta(days=365)
-#     client_orders_last_365_days = Product.objects.filter(order__client=client,
-#                                                          order__order_date__gte=last_365_days).distinct()
-#
-#     return render(request, 'task2/order_id.html', {
-#         'client_orders_last_7_days': client_orders_last_7_days,
-#         'client_orders_last_30_days': client_orders_last_30_days,
-#         'client_orders_last_365_days': client_orders_last_365_days,
-#     })
+def client_order(request, client_id):
+    client = Client.objects.get(pk=client_id)
+
+    orders_last_7_days = client.order_set.filter(order_date__gte=timezone.now() - timedelta(days=7))
+    orders_last_30_days = client.order_set.filter(order_date__gte=timezone.now() - timedelta(days=30))
+    orders_last_365_days = client.order_set.filter(order_date__gte=timezone.now() - timedelta(days=365))
+
+    all_products = Product.objects.all()
+
+    if request.method == 'POST':
+        product_form = ProductForm(request.POST, request.FILES)
+        if product_form.is_valid():
+            new_product = product_form.save()
+
+            return redirect('client_order', client_id=client.id)
+    else:
+        product_form = ProductForm()
+
+    context = {
+        'client': client,
+        'orders_last_7_days': orders_last_7_days,
+        'orders_last_30_days': orders_last_30_days,
+        'orders_last_365_days': orders_last_365_days,
+        'all_products': all_products,
+        'product_form': product_form,
+    }
+
+    return render(request, 'task2app/client_order.html', context)

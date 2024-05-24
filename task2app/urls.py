@@ -1,8 +1,7 @@
 from django.urls import path
-from .views import index
+from .views import index, client_order
 
 urlpatterns = [
     path('', index, name='index'),
-    path('client_orders/', client_orders, name='client_orders'),
-
+    path('client/<int:client_id>', client_order, name='client_order'),
 ]
